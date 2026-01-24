@@ -12,7 +12,7 @@ This project provides a modular 2D engine with a built-in editor. It's organized
 
 ## Project Structure
 
-\`\`\`
+```
 yantra-2d/
 ├── Engine/
 │   ├── include/
@@ -31,7 +31,7 @@ yantra-2d/
 ├── Shaders/               GLSL shader files
 ├── Assets/                Game assets
 └── CMakeLists.txt         Root build configuration
-\`\`\`
+```
 
 ## Build Instructions
 
@@ -42,12 +42,12 @@ yantra-2d/
 
 ### Building
 
-\`\`\`bash
+```bash
 cd yantra-2d
 cmake -B build
 cmake --build build
 ./build/bin/Editor
-\`\`\`
+```
 
 ## Features
 
@@ -83,7 +83,7 @@ cmake --build build
 ### Include Paths
 The CMake setup automatically exposes all subdirectories under include/:
 
-\`\`\`cpp
+```cpp
 // In Engine/src/core/Engine.cpp
 #include "Engine.h"
 
@@ -91,7 +91,7 @@ The CMake setup automatically exposes all subdirectories under include/:
 #include "math/Vector.h"
 #include "math/Line.h"
 #include "math/Plane.h"
-\`\`\`
+```
 
 ### Adding New Modules
 1. Create subdirectory in Engine/include/ and Engine/src/
@@ -103,9 +103,9 @@ The CMake setup automatically exposes all subdirectories under include/:
 
 Run the Editor executable to test all features:
 
-\`\`\`bash
+```bash
 ./build/bin/Editor
-\`\`\`
+```
 
 Tests include:
 - Vector construction and operations
