@@ -12,95 +12,110 @@ This project provides a modular 2D engine with a built-in editor. It's organized
 
 ## Project Structure
 
-```
+\`\`\`
 yantra-2d/
 ├── Engine/
 │   ├── include/
-│   │   ├── core/          # Engine core headers
-│   │   └── math/          # Math library headers (header-only)
+│   │   ├── core/          Engine core headers
+│   │   └── math/          Math library headers (header-only)
 │   ├── src/
-│   │   ├── core/          # Engine implementation
-│   │   └── math/          # Math implementations (if any)
-│   └── CMakeLists.txt     # Engine build configuration
+│   │   ├── core/          Engine implementation
+│   │   └── math/          Math implementations
+│   └── CMakeLists.txt
 ├── Editor/
-│   ├── include/           # Editor headers
+│   ├── include/           Editor headers
 │   ├── src/
-│   │   └── main.cpp  # yantra-2d
+│   │   └── main.cpp       Editor entry point
+│   └── CMakeLists.txt
+├── External/              Third-party libraries
+├── Shaders/               GLSL shader files
+├── Assets/                Game assets
+└── CMakeLists.txt         Root build configuration
+\`\`\`
 
-yantra-2d is a custom 2D game engine as.
-yantra-2?─
-## Project Overview
-
-This project provides a modular 2D enginers
-This project provGLS
-- **Engine**: Core engine library with math utilities and engine systems
-- **Editor**: Interactive editold - **Editor**: Interactive editor applics
+## Build Instructions
 
 ### Prerequisites
-- CMake 3.22+- **Math Library**: Header-only 3D math utilities (Vector3D
-#
-## Project Structure
+- CMake 3.22 or higher
+- C++17 compatible compiler
+- macOS, Linux, or Windows
 
-```
-yantra-2d/
-├── Engine/
-│   ├── incland
-```
-yantr build direcyary├── b│   ├── e │   │   ├── cui│   │   └── math/          # Math library heade
-#│   ├── src/
-│   │   ├── core/          # Engine impleri│   │   ├─?u│   │   └── math/        - Dot and cross products
- │   └── CMakeLists.txt     # Engine build configuration
-├wi├── Editor/
-│   ├── include/           # Editor **│   ├── en│   ├── src/
-│   │   └──ion
-  - Au│   │   └─?r
-yantra-2d is a custom 2D game engine as.
-ctiyantra-2?─
-## Project Overview
+### Building
 
-This ne## Project ti
-This project provormThis project provGLS
-- **Engine**: Core enma- **Engine**: Core  H- **Editor**: Interactive editold - **Editor**: Interactive editor applig
-### Prerequisites
-- CMake 3.22+- **Math Library**: Header-only 3D math uPro- CMake 3.22+- *ur#
-## Project Structure
+\`\`\`bash
+cd yantra-2d
+cmake -B build
+cmake --build build
+./build/bin/Editor
+\`\`\`
 
-```
-yantra-2d/
-├── Engine/
-│   ├─?eng
-```
-yantra-2d/
-├rehyasi├──ui│   ├── op```
-yantr build direcyfrya S#│   ├── src/
-│   │   ├── core/          # Engine impleri│   │   ├─?u│   │   └── math/   tes
+## Features
 
-##│   │   ├─?M │   └── CMakeLists.txt     # Engine build configuration
-├wi├── Editor/
-│   ├── aders directly: `#include "Eng├wi├── Editor/
-│   ├── include/           # Edih"│   ├── inclu"`│   │   └──ion
-  - Au│   │   └─?r
-yantra-2d is a custom 2D game od  - Au│   │   └?oyantra-2d is a custom 2D gd ctiyantra-2?─
-## Project Overview
+### Math Library (Header-Only)
+- **Vector3D**: 3D vector operations
+  - Addition, subtraction, scalar multiplication
+  - Dot and cross products
+  - Magnitude and unit vector normalization
+  - Floating-point comparison with epsilon tolerance
+  - Copy and move semantics
 
-Thnc## Project Oveim
-This ne## Projectrc/This project provor a- **Engine**: Core enma- **Engine**: Co p### Prerequisites
-- CMake 3.22+- **Math Library**: Header-only 3D math uPro- CMake 3.22+- *ur#
-## Project Structure
-Ed- CMake 3.22+- *es## Project Structure
+- **Line3D**: 3D line representation
+  - Point and direction representation
+  - Automatic direction normalization
+  - Graceful handling of zero-magnitude directions
 
-```
-yantra-2d/
-├── Engine/
-│   ├─?eng
-`au
-```
-yantra-2d/
-├on
-y Pl├──io│   ?utomatic n```
-yantra-2d/
-? yad ├rehyasduyantr build direcyfrya S#│   ├── se│   │   ├── core/          # Engin t
-##│   │   ├─?M │   └── CMakeListsLicense
+- **Plane3D**: 3D plane representation
+  - Point and normal vector representation
+  - Automatic normal normalization
+  - Graceful handling of zero-magnitude normals
+
+### Engine Core
+- Modular architecture
+- Organized include directories per subsystem
+- CMake configuration for easy scaling
+
+### Editor
+- Test application for all engine features
+- Comprehensive test suite
+
+## Development
+
+### Include Paths
+The CMake setup automatically exposes all subdirectories under include/:
+
+\`\`\`cpp
+// In Engine/src/core/Engine.cpp
+#include "Engine.h"
+
+// In Editor/src/main.cpp
+#include "math/Vector.h"
+#include "math/Line.h"
+#include "math/Plane.h"
+\`\`\`
+
+### Adding New Modules
+1. Create subdirectory in Engine/include/ and Engine/src/
+2. Add headers in the include subdirectory
+3. Add implementation in the src subdirectory
+4. CMakeLists.txt automatically picks up all includes
+
+## Testing
+
+Run the Editor executable to test all features:
+
+\`\`\`bash
+./build/bin/Editor
+\`\`\`
+
+Tests include:
+- Vector construction and operations
+- Line and plane creation with normalization
+- Dot and cross products
+- Unit vector normalization
+- Edge cases (zero vectors and normals)
+- Orthonormal basis generation
+
+## License
 
 TBD
 
