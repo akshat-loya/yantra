@@ -12,3 +12,4 @@ ${INCLUDE_SUBDIRS}
 )
 
 target_link_libraries(Engine PUBLIC glfw)
+target_link_libraries(Engine PRIVATE glad glfw OpenGL::GL)
