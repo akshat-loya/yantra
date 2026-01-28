@@ -1,10 +1,10 @@
-# yantra-2d
+# yantra
 
-yantra-2d is a custom 2D game engine and editor written in C++.
+yantra is a custom 2D (and maybe 3D) game engine and editor written in C++.
 
 ## Project Overview
 
-This project provides a modular 2D engine with a built-in editor. It's organized into separate components:
+This project provides a modular 2D (and 3D) engine with a built-in editor. It's organized into separate components:
 
 - **Engine**: Core engine library with math utilities and engine systems
 - **Editor**: Interactive editor application for development
@@ -13,7 +13,7 @@ This project provides a modular 2D engine with a built-in editor. It's organized
 ## Project Structure
 
 ```
-yantra-2d/
+yantra/
 ├── Engine/
 │   ├── include/
 │   │   ├── core/          Engine core headers
@@ -43,7 +43,7 @@ yantra-2d/
 ### Building
 
 ```bash
-cd yantra-2d
+cd yantra
 cmake -B build
 cmake --build build
 ./build/bin/Editor
@@ -80,19 +80,6 @@ cmake --build build
 
 ## Development
 
-### Include Paths
-The CMake setup automatically exposes all subdirectories under include/:
-
-```cpp
-// In Engine/src/core/Engine.cpp
-#include "Engine.h"
-
-// In Editor/src/main.cpp
-#include "math/Vector.h"
-#include "math/Line.h"
-#include "math/Plane.h"
-```
-
 ### Adding New Modules
 1. Create subdirectory in Engine/include/ and Engine/src/
 2. Add headers in the include subdirectory
@@ -101,19 +88,7 @@ The CMake setup automatically exposes all subdirectories under include/:
 
 ## Testing
 
-Run the Editor executable to test all features:
-
-```bash
-./build/bin/Editor
-```
-
-Tests include:
-- Vector construction and operations
-- Line and plane creation with normalization
-- Dot and cross products
-- Unit vector normalization
-- Edge cases (zero vectors and normals)
-- Orthonormal basis generation
+TBD
 
 ## License
 
