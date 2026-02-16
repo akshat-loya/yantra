@@ -1,5 +1,4 @@
-#ifndef ENGINE_MATH_PLANE
-#define ENGINE_MATH_PLANE
+#pragma once
 
 #include "Vector.h"
 
@@ -26,5 +25,3 @@ public:
     // TODO parallel plane check
     // TODO orthogonal plane check
 };
-
-#endif //ENGINE_MATH_PLANE

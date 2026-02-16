@@ -1,10 +1,4 @@
-#include <iostream>
-#include <iomanip>
-
-#include "math/Vector.h"
-#include "math/Line.h"
-#include "math/Plane.h"
-#include "core/Engine.h"
+#include <Yantra.h>
 
 int main()
 {

@@ -1,5 +1,4 @@
-#ifndef ENGINE_MATH_LINE_H
-#define ENGINE_MATH_LINE_H
+#pragma once
 
 #include "Vector.h"
 
@@ -24,5 +23,3 @@ public:
     // TODO distance between two lines?
     // TODO is_parallel/is_perpendicular/is_orthogonal check?
 };
-
-#endif //ENGINE_MATH_LINE_H

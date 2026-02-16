@@ -5,9 +5,7 @@
  * ====================================================================
  */
 
-// TODO Read about #pragma once
-#ifndef ENGINE_MATH_VECTOR_H
-#define ENGINE_MATH_VECTOR_H
+#pragma once
 
 #include <cmath>
 
@@ -16,24 +14,21 @@ class Vector3D
 public:
     double x, y, z;
 
-    Vector3D() : x(0), y(0), z(0) {}
-
-    Vector3D(double x, double y, double z) : x(x), y(y), z(z) {}
+    constexpr Vector3D() noexcept : x(0), y(0), z(0) {}
+    constexpr Vector3D(double x, double y, double z) noexcept : x(x), y(y), z(z) {}
 
     Vector3D(const Vector3D& vec) = default;
     Vector3D& operator=(const Vector3D& vec) = default;
-    
     Vector3D(Vector3D&& vec) = default;
     Vector3D& operator=(Vector3D&& vec) = default;
-
     ~Vector3D() = default;
 
-    static double dotProd(const Vector3D& vec1, const Vector3D& vec2)
+    inline double dot(const Vector3D& vec1, const Vector3D& vec2)
     {
         return (vec1.x * vec2.x + vec1.y * vec2.y + vec1.z * vec2.z);
     }
 
-    static Vector3D crossProd(const Vector3D& vec1, const Vector3D& vec2)
+    inline Vector3D cross(const Vector3D& vec1, const Vector3D& vec2)
     {
         return Vector3D( 
             vec1.y * vec2.z - vec1.z * vec2.y,
@@ -41,9 +36,9 @@ public:
             vec1.x * vec2.y - vec1.y * vec2.x);
     }
 
-    double magnitude() const
+    double magnitude() const noexcept
     {
-        return sqrt(x*x + y*y + z*z);
+        return std::sqrt(x*x + y*y + z*z);
     }
 
     Vector3D unitVec() const
@@ -53,43 +48,31 @@ public:
         return Vector3D(x / mag, y / mag, z / mag);
     }
 
-    Vector3D operator+(const Vector3D& vec) const
+    Vector3D operator+(const Vector3D& vec) const noexcept
     {
-        return Vector3D(
-            this->x + vec.x,
-            this->y + vec.y,
-            this->z + vec.z);
+        return { x + vec.x, y + vec.y, z + vec.z };
     }
 
-    Vector3D operator-(const Vector3D& vec) const
+    Vector3D operator-(const Vector3D& vec) const noexcept
     {
-        return Vector3D(
-            this->x - vec.x,
-            this->y - vec.y,
-            this->z - vec.z);
+        return { x - vec.x, y - vec.y, z - vec.z };
     }
 
-    Vector3D operator*(double factor) const
+    Vector3D operator*(double factor) const noexcept
     {
-        return Vector3D(
-            this->x * factor,
-            this->y * factor,
-            this->z * factor);
+        return { x + factor, y + factor, z + factor };
     }
     
     bool operator==(const Vector3D& vec) const
     {
         const double diff = 1e-9;
-        return (fabs(this->x - vec.x) < diff &&
-                fabs(this->y - vec.y) < diff &&
-                fabs(this->z - vec.z) < diff);
+        return (std::fabs(this->x - vec.x) < diff &&
+                std::fabs(this->y - vec.y) < diff &&
+                std::fabs(this->z - vec.z) < diff);
     }
 
-    bool operator!=(const Vector3D& vec) const
+    bool operator!=(const Vector3D& vec) const noexcept
     {
         return !(*this == vec);
     }
 };
-
-
-#endif // ENGINE_MATH_VECTOR_H
