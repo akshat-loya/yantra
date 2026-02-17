@@ -16,11 +16,13 @@ This project provides a modular 2D (and 3D) engine with a built-in editor. It's 
 yantra/
 ├── Engine/
 │   ├── include/
+│   │   |── Yantra.h       Main header file to be included by application
 │   │   ├── core/          Engine core headers
-│   │   └── math/          Math library headers (header-only)
+│   │   |── math/          Math library (header-only implementation)
+│   │   └── utilities/     Utility functionality headers
 │   ├── src/
 │   │   ├── core/          Engine implementation
-│   │   └── math/          Math implementations
+│   │   └── utilities/     Utility functionality implementations
 │   └── CMakeLists.txt
 ├── Editor/
 │   ├── include/           Editor headers
@@ -28,6 +30,8 @@ yantra/
 │   │   └── main.cpp       Editor entry point
 │   └── CMakeLists.txt
 ├── External/              Third-party libraries
+│   ├── GLAD/              Loader-generator library for OpenGL
+│   └── GLFW/              Library for OpenGL
 ├── Shaders/               GLSL shader files
 ├── Assets/                Game assets
 └── CMakeLists.txt         Root build configuration
